@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+# Release build: attach the zip to a GitHub Release instead
+*.zip
+GuidedMatte_unencrypted/
+# Rafael Silva's original Nuke gizmo (reference only, kept on the NAS)
+example_nuke_node/
+# Compiled/encrypted Matchbox output
+*.mx
+*.lx

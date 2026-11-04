@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ShaderNodePreset Name="Guided Matte" ShaderType="Matchbox" Version="0.4" SoftwareVersion="2025.2.3" CommercialUsePermitted="True" Description="Guided Matte refines a rough matte using colour detail from a guide image, usually the original plate. The full RGB guided filter follows colour boundaries, including edges with similar luminance.&#10;&#10;Connect the original plate to Guide / Plate and a monochrome mask to Rough Matte. Blur Width is like a search range, and Edge Detail controls the detail frequency to include.&#10;&#10;Based on Rafael Silva’s **rs_GuidedBlur 1.3** Nuke gizmo, which in turn was based on *Guided Image Filtering* by Kaiming He, Jian Sun and Xiaoou Tang (ECCV 2010). Big thanks to Rafael for the original tool.&#10;&#10;Flame version by **Nils Crompton**  &#10;Questions or bugs: **[hello@nilscrompton.com](mailto:hello@nilscrompton.com)**&#10;&#10;**Version 0.4.** Aimed at Flame 2025.2.3 and up. Compiler checks have passed on Mac in 2025.2.3 and 2026.2.2; an earlier build also passed in 2025.2.5. Linux hasn’t been tested yet, and matching results across versions still needs a visual check.&#10;&#10;Shared under [MIT](https://opensource.org/license/mit), with the upstream [BSD-2-Clause](https://opensource.org/license/bsd-2-clause) notices kept in the source. Commercial use and modifications are welcome—please keep the licence notices with it. The full texts are included in the GLSL files." MatteProvider="True" SupportsAction="False" SupportsTimeline="False" SupportsTransition="False" SupportsAdaptiveDegradation="False" LimitInputsToTexture="True" TimelineUseBack="False">
+  <Shader Index="1" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="guideTex" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" Index="0" NoInput="Error" InputType="Front" DisplayName="Guide / Plate" />
+    <Uniform Type="sampler2D" Name="matteTex" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" Index="1" NoInput="Error" InputType="Matte" DisplayName="Rough Matte" />
+    <Uniform Type="float" Name="blurSize" DisplayName="Blur Width" Default="30.0" Row="0" Col="0" Page="0" Tooltip="Box width in output pixels. Nuke size mapping needs image comparison." Min="1.0" Max="256.0" Inc="0.1" ResDependent="None" />
+  </Shader>
+  <Shader Index="2" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="guideTex">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="3" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="guideTex">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="4" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="guideTex">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="sampler2D" Name="matteTex">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="5" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="adsk_results_pass1" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="6" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="adsk_results_pass2" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="7" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="adsk_results_pass3" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="8" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="adsk_results_pass4" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="9" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="adsk_results_pass5" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="sampler2D" Name="adsk_results_pass6" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="sampler2D" Name="adsk_results_pass7" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="sampler2D" Name="adsk_results_pass8" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="edgeDetail" DisplayName="Edge Detail" Default="3.5" Row="1" Col="0" Page="0" Tooltip="Epsilon = 10^(-detail), as in rs_GuidedBlur. Higher values preserve finer edges and grain." Min="0.0" Max="6.0" Inc="0.05" ResDependent="None" />
+  </Shader>
+  <Shader Index="10" OutputBitDepth="Float32">
+    <Uniform Type="sampler2D" Name="adsk_results_pass9" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+  </Shader>
+  <Shader Index="11" OutputBitDepth="Float16">
+    <Uniform Type="sampler2D" Name="guideTex">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="sampler2D" Name="matteTex">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="float" Name="blurSize">
+      <Duplicate />
+    </Uniform>
+    <Uniform Type="sampler2D" Name="adsk_results_pass10" Mipmaps="False" GL_TEXTURE_WRAP_S="GL_CLAMP_TO_EDGE" GL_TEXTURE_WRAP_T="GL_CLAMP_TO_EDGE" GL_TEXTURE_MIN_FILTER="GL_NEAREST" GL_TEXTURE_MAG_FILTER="GL_NEAREST" />
+    <Uniform Type="float" Name="mixAmount" DisplayName="Mix" Default="1.0" Row="2" Col="0" Page="0" Tooltip="Blend original and refined matte." Min="0.0" Max="1.0" Inc="0.01" ResDependent="None" />
+    <Uniform Type="bool" Name="clampMatte" DisplayName="Clamp Matte" Default="False" Row="0" Col="1" Page="0" Tooltip="Clamp refined matte to 0-1 before mixing. Off matches the unclamped Nuke graph." />
+  </Shader>
+  <Page Name="Guided Matte" Page="0">
+    <Col Name="Refinement" Col="0" Page="0" />
+    <Col Name="Output" Col="1" Page="0" />
+  </Page>
+</ShaderNodePreset>

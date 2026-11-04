@@ -1,0 +1,43 @@
+Upstream attribution and BSD-2-Clause notice
+
+Rafael Silva — rs_GuidedBlur v1.3 (Nuke gizmo)
+www.rafael.ai — rafael@rafael.ai
+https://www.nukepedia.com/tools/gizmos/filter/guided-blur-refine-edge/
+
+The supplied gizmo credits Rafael Silva and was inspected as an implementation
+reference. Nukepedia's published terms assign downloaded files the FreeBSD
+(BSD-2-Clause) licence unless otherwise stated:
+https://www.nukepedia.com/terms-of-use/
+No different licence or separate copyright notice was found in the supplied
+file or public gizmo description. The following upstream terms are retained
+for applicable upstream material; the MIT grant covers the new contributions
+and does not replace those terms. Rafael's original Nuke file is not bundled.
+
+BSD 2-Clause License
+https://opensource.org/license/bsd-2-clause
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+Algorithm reference: Kaiming He, Jian Sun and Xiaoou Tang,
+Guided Image Filtering, ECCV 2010. This citation credits the method; it does
+not purport to license the paper or any separate reference implementation.
