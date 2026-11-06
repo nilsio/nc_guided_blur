@@ -8,9 +8,11 @@ BSD-2-Clause notices stay in every pass and in THIRD_PARTY_NOTICES.txt.
 ## Every session
 
 - At the start, run `git pull` and report anything unusual.
-- At the end, or when Nils says he's done, check for uncommitted or unpushed work
-  and remind him to commit and push.
-- After code changes, offer to publish (`python3 publish.py`).
+- **This repo is public and pushing is a release.** The Logik Matchbook has a GitHub
+  webhook on it: every push that changes shader files updates the public listing
+  (logik-matchbook.org/shader/nc_guided_blur). Commit freely, but **never push unless
+  Nils asks to release**. At the end of a session, remind him to commit, not to push.
+- After code changes, offer to publish locally for testing in Flame (`python3 publish.py`).
 - Never commit client material, files over ~50 MB, the release zip, or Rafael's
   original .nk (it lives on the NAS at `~/pipeline/dev/nc_guided_blur/`).
 
@@ -19,7 +21,7 @@ BSD-2-Clause notices stay in every pass and in THIRD_PARTY_NOTICES.txt.
 - `build_shaders.py` generates everything in `matchbox/`. Edit the generator, not the
   GLSL/XML by hand, then run it. Check with `python3 verify_math.py`.
 - `publish.py` copies `matchbox/` to `~/pipeline/flame/matchbox/nc_guided_blur/`;
-  `publish.py --zip` rebuilds the release zip for a GitHub Release / Matchbook.
+  `publish.py --zip` rebuilds a zip of the shader files (rarely needed now).
 - Prefer readable unencrypted GLSL and XML. Matchbook submissions contain the numbered
   .glsl passes and sidecar XML, never encrypted .mx/.lx files.
 - Keep the licence headers, author credit and upstream attribution intact.

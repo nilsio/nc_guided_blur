@@ -70,5 +70,16 @@ Compile on a Flame workstation with:
 /opt/Autodesk/flame_2026.2.2/bin/shader_builder -m matchbox/nc_guided_blur.*.glsl
 ```
 
-After changes, refresh the sharing ZIP with `python3 publish.py --zip` and attach it
-to a new GitHub Release. Do not include older compiled files.
+## Releasing
+
+This repo is public, and the Logik Matchbook pulls it through a GitHub webhook. **A push
+is a release**: any push that changes shader files updates
+[logik-matchbook.org/shader/nc_guided_blur](https://logik-matchbook.org/shader/nc_guided_blur).
+
+1. Edit `build_shaders.py`, regenerate, run `verify_math.py` and the compile check.
+2. Test in Flame: `python3 publish.py` copies `matchbox/` to `~/pipeline/flame/matchbox/nc_guided_blur/`.
+3. Commit as often as you like. Bump the version in `build_shaders.py` for a real release.
+4. Push when ready. Write that commit message as the release note.
+5. Install the released shader from the Matchbook, so you run what everyone else downloads.
+
+Formerly GuidedMatte (logik-matchbook.org/shader/GuidedMatte).
