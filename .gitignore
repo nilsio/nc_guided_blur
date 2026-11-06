@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 # Release build: attach the zip to a GitHub Release instead
 *.zip
-nc_guided_blur_unencrypted/
+*_unencrypted/
 # Rafael Silva's original Nuke gizmo (reference only, kept on the NAS)
 example_nuke_node/
 # Compiled/encrypted Matchbox output
