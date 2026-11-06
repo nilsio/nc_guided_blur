@@ -100,11 +100,11 @@ assert q[2][7]-q[2][8]>.95
 print('PASS: equal-luminance colour edge remains sharp with RGB guidance')
 
 out = Path(__file__).resolve().parent/'matchbox'
-xml = ET.parse(out/'GuidedMatte.xml').getroot()
+xml = ET.parse(out/'nc_guided_blur.xml').getroot()
 seen = set()
 for n,sh in enumerate(xml.findall('Shader'),1):
     assert sh.get('Index')==str(n) and sh.get('OutputBitDepth')==('Float16' if n==11 else 'Float32')
-    source = (out/f'GuidedMatte.{n}.glsl').read_text()
+    source = (out/f'nc_guided_blur.{n}.glsl').read_text()
     for ref in re.findall(r'adsk_results_pass(\d+)\b',source): assert int(ref)<n
     for u in sh.findall('Uniform'):
         name=u.get('Name')

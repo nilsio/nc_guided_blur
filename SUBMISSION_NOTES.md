@@ -1,11 +1,11 @@
-# Guided Matte 0.4 — submission
+# NC Guided Blur 0.4 — submission
 
 The current files are in `matchbox`. Upload these 13 individual files at
 https://logik-matchbook.org/sharing:
 
-- GuidedMatte.1.glsl through GuidedMatte.11.glsl
-- GuidedMatte.xml
-- GuidedMatte.1.glsl.png
+- nc_guided_blur.1.glsl through nc_guided_blur.11.glsl
+- nc_guided_blur.xml
+- nc_guided_blur.1.glsl.png
 
 Do not upload the ZIP or text documents. Full MIT and upstream BSD notices
 are embedded in every GLSL pass. Keep LICENSE.txt and THIRD_PARTY_NOTICES.txt

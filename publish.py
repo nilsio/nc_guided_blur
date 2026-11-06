@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Publish the Guided Matte Matchbox.
+"""Publish the NC Guided Blur Matchbox.
 
-Default: copy matchbox/* to ~/pipeline/flame/matchbox/GuidedMatte/ (where Flame
+Default: copy matchbox/* to ~/pipeline/flame/matchbox/nc_guided_blur/ (where Flame
 browses for Matchbox shaders). Files in the destination that are not in
 matchbox/ are reported but never deleted.
 
---zip: rebuild GuidedMatte_unencrypted.zip (matchbox files + SUBMISSION_NOTES.md)
+--zip: rebuild nc_guided_blur_unencrypted.zip (matchbox files + SUBMISSION_NOTES.md)
 for a GitHub Release / Matchbook. The zip is gitignored.
 
 Usage: python3 publish.py [--dry-run] [--dest DIR] [--zip]
@@ -19,8 +19,8 @@ import zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "matchbox")
-DEFAULT_DEST = os.path.join(os.path.expanduser("~"), "pipeline", "flame", "matchbox", "GuidedMatte")
-ZIP = os.path.join(HERE, "GuidedMatte_unencrypted.zip")
+DEFAULT_DEST = os.path.join(os.path.expanduser("~"), "pipeline", "flame", "matchbox", "nc_guided_blur")
+ZIP = os.path.join(HERE, "nc_guided_blur_unencrypted.zip")
 
 
 def files():

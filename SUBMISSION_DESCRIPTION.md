@@ -1,4 +1,4 @@
-Guided Matte refines a rough matte using colour detail from a guide image, usually the original plate. The full RGB guided filter follows colour boundaries, including edges with similar luminance.
+NC Guided Blur refines a rough matte using colour detail from a guide image, usually the original plate. The full RGB guided filter follows colour boundaries, including edges with similar luminance.
 
 Connect the original plate to Guide / Plate and a monochrome mask to Rough Matte. Blur Width is like a search range, and Edge Detail controls the detail frequency to include.
 
